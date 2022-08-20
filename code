@@ -1,0 +1,75 @@
+//КАЛЬКУЛЯТОР
+
+double num1;
+char oper;
+bool bug;
+double num2;
+double result = 1;
+bool corb;
+bool bug2;
+
+do
+{
+    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\tКАЛЬКУЛЯТОР");
+
+    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\tВВЕДИТЕ ПЕРВОЕ ЧИСЛО ( для использования дробного числа используйте точку )");
+    num1 = double.Parse(Console.ReadLine());
+    Console.WriteLine($"\t\t\t\t\t\t\t\t\t\t\tВВЕДЕННОЕ ЧИСЛО - {num1}");
+
+    do
+    {
+        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\tВВЕДИТЕ ОПЕРАЦИЮ ( + - * / )");
+        oper = char.Parse(Console.ReadLine());
+        Console.WriteLine($"\t\t\t\t\t\t\t\t\t\t\tВВЕДЕННАЯ ОПЕРАЦИЯ - {oper}");
+
+        if (oper != '+' & oper != '-' & oper != '*' & oper != '/')
+        {
+            Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\tОШИБКА: НЕСУЩЕСТВУЮЩАЯ ОПЕРАЦИЯ");
+            Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\tПОПРОБУЙТЕ ЕЩЕ РАЗ");
+            bug = true;
+        }
+
+        else
+        {
+            bug = false;
+        }
+
+    } while (bug == true);
+
+    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\tВВЕДИТЕ ВТОРОЕ ЧИСЛО");
+    num2 = double.Parse(Console.ReadLine());
+    Console.WriteLine($"\t\t\t\t\t\t\t\t\t\t\tВВЕДЕННОЕ ЧИСЛО - {num2}");
+
+    switch (oper)
+    {
+        case '+':
+            {
+                result = num1 + num2;
+                break;
+            }
+
+        case '-':
+            {
+                result = num1 - num2;
+                break;
+            }
+
+        case '*':
+            {
+                result = num1 * num2;
+                break;
+            }
+
+        case '/':
+            {
+                result = num1 / num2;
+                break;
+            }
+    }
+
+    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t\t{num1} {oper} {num2} = {result}");
+
+    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\tХОТИТЕ ПРОДОЛЖИТЬ? ( ДА - \"TRUE\", НЕТ - \"FALSE\" )");
+    corb = bool.Parse(Console.ReadLine());
+
+} while (corb == true);
